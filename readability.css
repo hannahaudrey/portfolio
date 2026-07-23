@@ -19,6 +19,7 @@ footer .note { box-shadow: 2px 4px #6229ae !important; }
 .case-nav nav { gap: 14px !important; }
 
 .intro p { font-size: 16px !important; line-height: 1.55 !important; color: #454545 !important; }
+.intro-keyword { color: #9447FA; font-weight: 500; }
 .intro p a { color: #6b2bc4; font-weight: 400; text-decoration: none; }
 .intro p a:hover, .intro p a:focus-visible { color: #4d148f; }
 .caption small,
