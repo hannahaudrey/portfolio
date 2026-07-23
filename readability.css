@@ -1,0 +1,47 @@
+/* Readable type scale and WCAG AA-conscious contrast overrides. */
+body { font-size: 16px !important; }
+
+:root { --theme-primary: #9447FA; }
+.intro h1 span { color: var(--theme-primary) !important; }
+.callout { border-color: var(--theme-primary) !important; }
+footer { background: var(--theme-primary) !important; }
+footer .note { box-shadow: 2px 4px #6229ae !important; }
+
+.face { width: 125px !important; height: 125px !important; margin-left: 4px; transform: none !important; }
+.nav-icon { display: block; width: 125px; height: 125px; object-fit: contain; }
+
+.sidebar nav a,
+.case-nav > a,
+.case-nav nav a { font-size: 16px !important; line-height: 1.5 !important; color: #4b4b4b !important; }
+.sidebar nav a.active { color: #191919 !important; }
+.sidebar nav { gap: 12px !important; }
+.sidebar nav { margin-top: 20px !important; }
+.case-nav nav { gap: 14px !important; }
+
+.intro p { font-size: 16px !important; line-height: 1.55 !important; color: #454545 !important; }
+.intro p a { color: #6b2bc4; font-weight: 400; text-decoration: none; }
+.intro p a:hover, .intro p a:focus-visible { color: #4d148f; }
+.caption small,
+footer small,
+.eyebrow,
+.section small,
+.meta small,
+.tldr b { font-size: 12px !important; color: #595959 !important; }
+.caption h2 { font-size: 17px !important; line-height: 1.3 !important; }
+.footer-meta p { font-size: 14px !important; }
+
+.case-main h1 { font-size: 28px !important; line-height: 1.2 !important; }
+.section h2 { font-size: 22px !important; line-height: 1.25 !important; }
+.section p,
+.tldr,
+.meta p { font-size: 16px !important; line-height: 1.55 !important; color: #454545 !important; }
+.callout { font-size: 16px !important; line-height: 1.45 !important; }
+
+@media (max-width: 760px) {
+  .sidebar nav a { font-size: 15px !important; }
+  .intro p,
+  .section p,
+  .tldr,
+  .meta p { font-size: 16px !important; }
+  .case-main h1 { font-size: 26px !important; }
+}

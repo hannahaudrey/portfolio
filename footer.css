@@ -1,0 +1,45 @@
+.site-footer {
+  min-height: 390px !important;
+  height: auto !important;
+  position: relative;
+  display: block !important;
+  overflow: hidden;
+  padding: 54px clamp(32px, 6vw, 90px) 42px !important;
+  background: #9447FA !important;
+  color: #fff;
+}
+
+.footer-note {
+  position: relative;
+  width: min(310px, 78vw);
+  padding: 24px 22px 19px;
+  border-radius: 4px;
+  background: #171717;
+  color: #fff;
+  box-shadow: 5px 6px 0 #6229ae;
+  transform: rotate(-3deg);
+}
+
+.footer-note small,
+.footer-links small { color: #a8a8a8 !important; font: 11px "DM Mono", monospace !important; letter-spacing: .06em; }
+.footer-note p { margin: 12px 0 0; padding: 0 0 10px; border-bottom: 1px solid #4a4a4a; font-size: 16px !important; line-height: 1.35; font-weight: 500; }
+.footer-note p:last-child { border-bottom: 0; padding-bottom: 0; }
+.footer-note a { color: #fff; text-decoration-color: #9447FA; text-underline-offset: 3px; }
+.footer-star { position: absolute; top: 15px; right: 16px; display: inline-block; color: #9447FA; font-size: 28px; line-height: 1; }
+.footer-email { transition: color .2s ease, text-shadow .2s ease; }
+.footer-email:hover, .footer-email:focus-visible { color: #d8bcff; text-shadow: 0 0 12px #9447FA; }
+
+.footer-links { position: absolute; top: 62px; right: clamp(32px, 7vw, 110px); display: grid; justify-items: end; gap: 16px; }
+.footer-links small { margin-bottom: 7px; color: #e1cfff !important; }
+.connect-icons { display: flex; gap: 10px; }
+.icon-link { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid #d6bbff; border-radius: 50%; color: #fff; text-decoration: none; font-size: 19px; font-weight: 700; transition: background .2s ease, color .2s ease; }
+.icon-link:hover, .icon-link:focus-visible { background: #fff; color: #6229ae; outline: none; }
+.icon-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+.footer-credit { position: absolute; left: 50%; bottom: 29px; width: max-content; max-width: calc(100% - 64px); margin: 0; transform: translateX(-50%); color: #f1e8ff; text-align: center; font-size: 13px !important; }
+
+@media (max-width: 700px) {
+  .site-footer { min-height: 560px !important; padding: 46px 32px 76px !important; }
+  .footer-links { position: static; margin-top: 55px; justify-items: start; }
+  .footer-credit { font-size: 11px !important; }
+}
