@@ -12,8 +12,11 @@ footer .note { box-shadow: 2px 4px #6229ae !important; }
 
 .sidebar nav a,
 .case-nav > a,
-.case-nav nav a { font-size: 16px !important; line-height: 1.5 !important; color: #4b4b4b !important; }
-.sidebar nav a.active { color: #191919 !important; }
+.case-nav nav a { font-size: 16px !important; line-height: 1.5 !important; color: #888 !important; }
+.sidebar nav a { position: relative; display: inline-flex; width: fit-content; transition: color .22s ease, transform .28s cubic-bezier(.2,.8,.2,1); }
+.sidebar nav a:hover, .sidebar nav a:focus-visible { color: #9447FA !important; transform: translateX(3px); }
+.sidebar nav a.active { display: inline-flex; align-items: center; gap: 6px; color: #9447FA !important; font-weight: 700; }
+.sidebar nav a.active::after { content: "✳︎"; display: inline-block; color: #9447FA; font-family: "DM Sans", Arial, sans-serif; font-size: .9em; font-variant-emoji: text; animation: nav-active-star 7s linear infinite; }
 .sidebar nav { gap: 12px !important; }
 .sidebar nav { margin-top: 20px !important; }
 .case-nav nav { gap: 14px !important; }
@@ -22,6 +25,11 @@ footer .note { box-shadow: 2px 4px #6229ae !important; }
 .intro-keyword { color: #9447FA; font-weight: 500; }
 .intro p a { color: #6b2bc4; font-weight: 400; text-decoration: none; }
 .intro p a:hover, .intro p a:focus-visible { color: #4d148f; }
+.company-link { cursor: pointer; }
+.site-preview { position: fixed; z-index: 30; width: min(420px, calc(100vw - 24px)); aspect-ratio: 1121 / 662; overflow: hidden; border-radius: 12px; box-shadow: 0 18px 48px #31105c33; opacity: 0; pointer-events: none; transform: translateY(8px) scale(.98); transition: opacity .18s ease, transform .18s ease; }
+.site-preview.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+.site-preview__image { display: block; width: 100%; height: 100%; object-fit: cover; background: #f6efff; }
+@media (max-width: 700px) { .site-preview { display: none; } }
 .caption small,
 footer small,
 .eyebrow,
@@ -38,7 +46,37 @@ footer small,
 .meta p { font-size: 16px !important; line-height: 1.55 !important; color: #454545 !important; }
 .callout { font-size: 16px !important; line-height: 1.45 !important; }
 
+@keyframes nav-active-star { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .sidebar nav a.active::after { animation: none; } }
+
+/* Switch before the fixed desktop sidebar can intrude on the page content. */
+@media (max-width: 1000px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    left: auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #fff;
+    z-index: 20;
+  }
+  .face { order: 1; width: 88px !important; height: 88px !important; margin-left: 0; }
+  .nav-icon { width: 88px; height: 88px; }
+  .sidebar nav { order: 2; flex-direction: row; margin: 0 0 0 auto !important; gap: 17px !important; }
+  .sidebar nav a:hover, .sidebar nav a:focus-visible { transform: translateY(-2px); }
+  main { padding-top: 56px; }
+}
+
 @media (max-width: 760px) {
+  .sidebar { padding: 10px 5%; }
+  .face { width: 72px !important; height: 72px !important; }
+  .nav-icon { width: 72px; height: 72px; }
+  .sidebar nav { margin-top: 0 !important; }
   .sidebar nav a { font-size: 15px !important; }
   .intro p,
   .section p,

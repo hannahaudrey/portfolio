@@ -3,6 +3,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  const preview = document.querySelector(".site-preview");
+  const previewImage = document.querySelector(".site-preview__image");
+
+  document.querySelectorAll(".company-link").forEach((link) => {
+    const showPreview = (event) => {
+      if (previewImage.dataset.url !== link.dataset.previewImage) {
+        previewImage.src = link.dataset.previewImage;
+        previewImage.dataset.url = link.dataset.previewImage;
+      }
+      const x = Math.min(event.clientX + 18, window.innerWidth - preview.offsetWidth - 12);
+      const y = Math.min(event.clientY + 18, window.innerHeight - preview.offsetHeight - 12);
+      preview.style.left = `${Math.max(12, x)}px`;
+      preview.style.top = `${Math.max(12, y)}px`;
+      preview.classList.add("is-visible");
+    };
+    link.addEventListener("pointerenter", showPreview);
+    link.addEventListener("pointermove", showPreview);
+    link.addEventListener("focus", () => {
+      const rect = link.getBoundingClientRect();
+      showPreview({ clientX: rect.right, clientY: rect.bottom });
+    });
+    link.addEventListener("pointerleave", () => preview.classList.remove("is-visible"));
+    link.addEventListener("blur", () => preview.classList.remove("is-visible"));
+  });
+
   const media = gsap.matchMedia();
 
   media.add("(prefers-reduced-motion: no-preference)", () => {
